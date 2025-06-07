@@ -1,5 +1,88 @@
 NodeJS is used to run JS outside the browser.
 Creator: Ryan Dahl
 
+Browsers have JS engines to run JS since machines cannot understand JS directly.
+Ex: Google Chrome has V8 engine which is written in C++
+
+                                        JavaScript
+                                            |
+                                           C++
+                                            |
+                                    Assembly Language
+                                            |
+                                       Machine Code
+
+
+Node.js is an open source JS runtime environment.
+Its not a Programming Language
+Its not a framewrork.
+
+Node.js is build on Chrome's V8 JS engine
+
+
+                            Framworks vs Library vs Runtime Envs
+                            ------------------------------------
+
+
+                                            LIBRARY
+- A collection of pre-written code (functions, classes, etc.) that you can call when you need it.
+- Your control the flow, decide when and how to call the code
+- YOU CALL THE CODE.
+
+Ex: Lodash, jQuery
+
+Analogy:
+Like ordering ingredients from a store—you still cook the meal.
+
+                                          FRAMEWORK
+
+- A complete structure or skeleton that dictates how your code should be organized. 
+  You fill in the pieces.
+
+The framework Controls the flow. It calls your code at specific points. 
+
+Ex: Angular, Next.js, Express.js
+
+Analogy:
+Like working with a recipe kit—you follow their steps and only customize certain parts.
+
+
+                                    RUNTIME ENVIRONMENT
+
+- The engine that runs your code. 
+- It provides essential features like memory management, I/O, and system-level APIs.
+
+You don’t write it—you run your code inside it.
+
+Ex: 
+Node.js – runtime for running JavaScript outside the browser
+JVM – Java Virtual Machine for running Java bytecode
+Python interpreter
+
+Analogy:
+Like the kitchen where you cook—without it, nothing runs.
+
+
+                                            How to run node in machine CMD
+                                            ------------------------------
+
+- open cmd
+- "node" + enter   (to exit, just type ctrl + C  OR process.exit())
+- "process" + enter -> provides information about and control over the current Node.js process. 
+   It's an essential tool for interacting with the runtime environment
+
+                                            How to run JS file using node
+                                            ------------------------------
+
+- open vs code >> create a simple file
+- preferably, run the js file from VS code terminal, since we are then already in that directory
+- command -> node fileNameWithPath
+
+
+
+
+
+
+
 
 
