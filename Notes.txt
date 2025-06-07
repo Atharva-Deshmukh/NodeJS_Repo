@@ -1,0 +1,5 @@
+NodeJS is used to run JS outside the browser.
+Creator: Ryan Dahl
+
+
+
