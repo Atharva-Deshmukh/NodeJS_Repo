@@ -1,0 +1,63 @@
+Shortcuts to run commands
+
+define them in scripts {} in package.json
+
+  "scripts": {
+    "start": "node app.js",
+    "fileSystem": "mkdir Directory && cd Directory && mkdir successFolder",
+
+    /* This one is the default script */
+    "test": "echo \"Error: no test specified\" && exit 1",
+
+    "sayHello": "echo \" Hello Birt!\""
+  },
+
+
+                            How to run a script:
+                            --------------------
+
+- npm run <scriptName>
+- npm run-script <scriptName>
+- npm <scriptName>  /* Some special scripts */
+
+                             Operators Chaining
+                            --------------------
+
+- Chaining means, next commands will run only if previous commands are executed successfully
+- In this script:  "test": "echo \"Error: no test specified\" && exit 1",
+  '&&' chains both scripts before and after it
+- exit 1 runs only if echo is exit 0 or it runs successfully
+- Ex of Chaining
+  "fileSystem": "mkdir Directory && cd Directory && mkdir successFolder"
+
+                                Script Hooks
+                            --------------------
+
+- Chaining the scripts also makes the scripts look dirty.
+- We can add hooks before and after the script for a better look and 
+  a better readability.
+
+Syntax:
+- prepend 'pre' and 'post' to the scriptName
+- the order of preScript and postScript doesn't matter in package.json scripts{}, they are always executed in order 
+  preScript --> Script --> postScript
+
+"sayHello": "echo \" Hello Birt!\"",
+"postsayHello": "echo \" AFTER Script \"",
+"presayHello": "echo \" BEFORE Script \"",
+
+
+                                            DRAWBACKS OF SCRIPTS:
+                                            --------------------
+
+- scripts become env dependent like windows or unix.
+
+                                                 WORKAROUND:
+                                            --------------------
+
+- create separate scripts for each env, this is feasible only when there are less scripts.
+- Use --cross-env package of npm
+
+
+
+

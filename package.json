@@ -5,7 +5,12 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sayHello": "echo \" Hello Birt!\"",
+    "postsayHello": "echo \" AFTER Script \"",
+    "presayHello": "echo \" BEFORE Script \"",
+    "fileSystem": "mkdir Directory && cd Directory && mkdir successFolder"
   },
   "author": "Atharva Deshmukh",
   "license": "ISC"
