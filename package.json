@@ -1,0 +1,12 @@
+{
+  "name": "nodejs_repo",
+  "version": "1.0.0",
+  "description": "To store learning progress",
+  "main": "FirstFile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Atharva Deshmukh",
+  "license": "ISC"
+}
