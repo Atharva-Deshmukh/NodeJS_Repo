@@ -13,5 +13,8 @@
     "fileSystem": "mkdir Directory && cd Directory && mkdir successFolder"
   },
   "author": "Atharva Deshmukh",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
