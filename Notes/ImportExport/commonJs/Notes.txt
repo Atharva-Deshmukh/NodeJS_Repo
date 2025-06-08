@@ -1,0 +1,53 @@
+in package.json:
+{
+  "type": "commonjs"
+}
+
+----------------------------------------------
+// file.js
+const fs = require('fs');
+
+module.exports = {
+  readFile: (path) => fs.readFileSync(path, 'utf-8')
+};
+
+/* To import node's inbuilt libraries */
+const fs = require('fs');
+----------------------------------------------
+
+This is older way of import export.
+This is DEFAULT.
+
+Working:
+--------
+
+Before compiling a module, Node wraps the module code in a function.
+It does not execute any code we write in a file directly.
+Instead, it executes the wrapper function.
+
+The wrapper function has 5 arguments
+(exports, require, module, __filename, __dirname)
+
+To see the wrapper function for that js file, 
+add console.log(arguments) in the very end of the js file
+and run this file using node fileName.js
+
+--------------------------------------
+function add(a, b) {
+    return a + b;
+}
+
+function subract(a, b) {
+    return a - b;
+}
+
+console.log(arguments);
+--------------------------------------
+
+Syntax:
+
+module.exports = { add, subtract};
+
+--------------------------------------
+
+

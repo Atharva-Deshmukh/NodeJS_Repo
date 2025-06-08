@@ -1,0 +1,5 @@
+
+
+
+./ --> when the import lies in same directory
+../ --> when we have to level up to find the file to be imported
