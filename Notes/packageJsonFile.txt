@@ -1,0 +1,22 @@
+                                                  package.json file
+                                                  ------------------
+
+- This file is created when we create a new node.js project
+- Its used to manage all the project dependencies and script commands
+- Its present in the root of the project
+- Ways to create: 
+  Manual (cumbersome)
+  Command: npm init  (answer the series questions)
+  Command: npm init -y  (accept all default answers)
+- To set a property via cli --> Ex: npm config set init-author-name "Atharva Deshmukh"
+  This only updates your global npmrc file 
+  now delete package.json file and hit npm init -y
+
+  Property: "main": "index.js", by default, when no other file is there in project and 
+            we hit npm init
+
+            when THERE ARE files in the project and we hit npm init, it picks the first file
+            sorted alphabetically as the main: property
+
+  USE: we don't push node modules, so when someone else clones the repo, 
+       they simply have to run npm init and the dependencies would be picked from the package.json file

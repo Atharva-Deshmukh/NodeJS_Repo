@@ -1,0 +1,47 @@
+NodeJS is used to run JS outside the browser.
+Creator: Ryan Dahl
+
+Browsers have JS engines to run JS since machines cannot understand JS directly.
+Ex: Google Chrome has V8 engine which is written in C++
+
+                                        JavaScript
+                                            |
+                                           C++
+                                            |
+                                    Assembly Language
+                                            |
+                                       Machine Code
+
+
+Node.js is an open source JS runtime environment.
+Its not a Programming Language
+Its not a framewrork.
+
+Node.js is build on Chrome's V8 JS engine
+
+
+
+                                            How to run node in machine CMD
+                                            ------------------------------
+
+- open cmd
+- "node" + enter   (to exit, just type ctrl + C  OR process.exit())
+- "process" + enter -> provides information about and control over the current Node.js process. 
+   It's an essential tool for interacting with the runtime environment
+
+                                            How to run JS file using node
+                                            ------------------------------
+
+- open vs code >> create a simple file
+- preferably, run the js file from VS code terminal, since we are then already in that directory
+- command -> node fileNameWithPath
+
+
+
+
+
+
+
+
+
+
