@@ -3,6 +3,10 @@ in package.json:
   "type": "commonjs"
 }
 
+OR:
+
+save js file as .cjs
+
 ----------------------------------------------
 // file.js
 const fs = require('fs');
@@ -17,6 +21,7 @@ const fs = require('fs');
 
 This is older way of import export.
 This is DEFAULT.
+the relative path in require() can or cannot have extension
 
 Working:
 --------

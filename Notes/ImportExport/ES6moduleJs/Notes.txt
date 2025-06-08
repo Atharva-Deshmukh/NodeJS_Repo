@@ -1,0 +1,84 @@
+in package.json
+{
+  "type": "module"
+}
+
+OR 
+
+save js file with .mjs extension
+
+------------------------------------
+// file.js
+import fs from 'fs';
+
+export function readFile(path) {
+  return fs.readFileSync(path, 'utf-8');
+}
+
+------------------------------------
+- the relative path in import MUST have extension
+- import export must be TOP LEVEL unlike require()
+- CJS works synchronously while MJS works both synchronously and asynchronously
+- THERE CAN BE ONLY ONE DEFAULT PER MODULE
+------------------------------------
+Syntaxes for export:
+
+// Exporting individual features
+export let name1 = …,    name2 = …, …, nameN; // also var, const
+
+// Export list
+export { name1, name2, …, nameN };
+
+//Exporting everything at once
+export { object, number, x, y, boolean, string }
+
+// Renaming exports
+export { variable1 as name1, variable2 as name2, …, nameN };
+
+------------------------------------
+Types of exports:
+
+Named exports:
+Named exports require importing by the exact name.
+
+Defualt exports:
+Default exports allow importing with any name.
+THERE CAN BE ONLY ONE DEFAULT PER MODULE
+
+// file module.js
+let x = 4;
+export default x;
+
+// test.js
+// while importing x in test.js
+import y from './module';
+// note that y is used import x instead of 
+// import x, because x was default export
+console.log(y);
+// output will be 4
+
+-------------------------------------------------
+Using Named and Default Exports at the same time
+-------------------------------------------------
+JavaScript allows you to use both named and default exports in the same module. 
+This flexibility is helpful when you have a primary export along with additional supporting exports.
+
+Ex: 
+//module.js
+let x = 2;
+const y = 4;
+function fun() {
+	return "This a default export."
+}
+function square(x) {
+	return x * x;
+}
+export { fun as default, x, y, square };
+
+While importing this module.js we can use any name for fun because 
+it is a default export and curly braces for other named exports. 
+
+//test.js file
+import anyname, { x, y, square} from './module.js';
+console.log(anyname()); //This is a default export.
+console.log(x); //2
