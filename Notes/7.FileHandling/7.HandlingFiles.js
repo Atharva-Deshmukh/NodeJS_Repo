@@ -1,13 +1,19 @@
-import { dir } from 'console';
 import fs from 'fs';
 
 const dirPath = 'Notes/7.FileHandling'; 
 const filePath = 'Notes/7.FileHandling/file.txt'; 
 const incorrectFilePath = 'Notes/7.FileHandling123/file.txt'; 
 
-/* Handling files synchronously */
+/*                                  HANDLING FILES SYNCHRONOUSLY
+                                    ----------------------------
 
-// Read file
+- The functions execute synchronously, one by one.
+- This is recommended when we are outside cypress hooks and blocks, in node js env.
+- We cannot take advantage of cypress' built-in waits, retries... 
+- It BLOCKS EXECUTION, till it is resolved */
+
+/************************************** Read file *********************************************/
+
 /* utf-8 means we contents of file are extracted in text format, else it would be binary encoding */
 const textRead = fs.readFileSync(filePath, 'utf-8');
 console.log('TEXT -> ' + textRead);
@@ -20,7 +26,7 @@ if(fs.existsSync(incorrectFilePath) === true) {
     console.log('INCORRECT FILE PATH');
 }
 
-// Write file
+/*********************************** Write file ***************************************/
 if(fs.existsSync(dirPath) === true) {
     const textToBeWritten = 'OVERWRITTEN';
 
@@ -34,7 +40,8 @@ if(fs.existsSync(dirPath) === true) {
     console.log('INCORRECT FILE PATH');
 }
 
-// Update/Append file
+/*********************************** Update/Append file ***************************************/
+
 // Way - 1: use {flag: a}, a -> append
 if(fs.existsSync(dirPath) === true) {
     const textToBeWritten = '  APPENDED WAY 1';
@@ -62,7 +69,7 @@ if(fs.existsSync(dirPath) === true) {
     console.log('INCORRECT FILE PATH');
 }
 
-//Rename file
+/************************************** Rename file *********************************************/
 if(fs.existsSync(dirPath) === true) {
     const newName = 'renamedFile.txt';
 
@@ -76,7 +83,7 @@ if(fs.existsSync(dirPath) === true) {
 }
 
 
-// Delete file
+/************************************** Delete file *********************************************/
 const newName = 'renamedFile.txt';
 if(fs.existsSync(dirPath + '/' + newName) === true) {
 
@@ -86,7 +93,33 @@ if(fs.existsSync(dirPath + '/' + newName) === true) {
     console.log('FILE NOT FOUND!!');
 }
 
+/*                                  HANDLING FILES ASYNCHRONOUSLY
+                                    ----------------------------
 
+- Recommended when we want to chain inside cypress
+- Cypress' features like automatic retries and waits are available here 
+- It doesn't block execution  */
+
+/*********************************** Read file ***************************************/
+
+fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
+    if(err) console.log('ERROR -> ', err.message);
+    else console.log('DATA -> ', data);
+});
+
+fs.readFile(incorrectFilePath, {encoding: 'utf-8'}, (err, data) => {
+    if(err) console.log('ERROR -> ', err.message);
+    else console.log('DATA -> ', data);
+});
+
+/*********************************** Write file ***************************************/
+
+const textToBeWritten = 'WRITTEN IN ASYNC WAY';
+
+fs.writeFile(dirPath + '/WRITTEN_FILE.txt', textToBeWritten, (err) => {
+    if(err) console.log('ERROR -> ', err.message);
+    else console.log('FILE CREATED !!');
+});
 
 
 
