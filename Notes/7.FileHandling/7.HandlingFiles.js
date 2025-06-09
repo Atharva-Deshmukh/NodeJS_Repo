@@ -62,6 +62,30 @@ if(fs.existsSync(dirPath) === true) {
     console.log('INCORRECT FILE PATH');
 }
 
+//Rename file
+if(fs.existsSync(dirPath) === true) {
+    const newName = 'renamedFile.txt';
+
+    fs.renameSync(dirPath + '/GENERATED_FILE.txt', dirPath + '/' + newName);
+
+    const textGenerated = fs.readFileSync( dirPath + '/' + newName, 'utf-8');
+    console.log('TEXT -> ' + textGenerated);
+
+} else {
+    console.log('INCORRECT FILE PATH');
+}
+
+
+// Delete file
+const newName = 'renamedFile.txt';
+if(fs.existsSync(dirPath + '/' + newName) === true) {
+
+    fs.unlinkSync(dirPath + '/' + newName);
+
+} else {
+    console.log('FILE NOT FOUND!!');
+}
+
 
 
 
