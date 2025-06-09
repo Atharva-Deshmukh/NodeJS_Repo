@@ -121,5 +121,21 @@ fs.writeFile(dirPath + '/WRITTEN_FILE.txt', textToBeWritten, (err) => {
     else console.log('FILE CREATED !!');
 });
 
+/********************************* Append/Update file ************************************/
+
+const textToBeAppended = '\n Appended Text!!';
+
+fs.appendFile(dirPath + '/WRITTEN_FILE.txt', textToBeAppended, (err) => {
+    if(err) console.log('ERROR -> ', err.message);
+    else console.log('FILE APPENDED !!');
+});
+
+/********************************* Delete file ************************************/
+
+fs.unlink(dirPath + '/WRITTEN_FILE.txt', (err) => {
+    if(err) console.log('ERROR -> ', err.message);
+    else console.log('FILE DELETED !!');
+});
+
 
 
