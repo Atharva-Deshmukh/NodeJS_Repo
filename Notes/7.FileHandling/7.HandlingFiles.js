@@ -40,6 +40,15 @@ if(fs.existsSync(dirPath) === true) {
     console.log('INCORRECT FILE PATH');
 }
 
+/********************************* HANDLING IMAGES ************************************/
+
+let imagePath = './Images/SHAOLIN.jpg';
+let newImagePath = './Images';
+
+let imageCopied = Buffer.from(fs.readFileSync(imagePath), "base64");
+
+fs.writeFileSync(newImagePath + '/CopiedImage.jpg', imageCopied);
+
 /*********************************** Update/Append file ***************************************/
 
 // Way - 1: use {flag: a}, a -> append
@@ -136,6 +145,7 @@ fs.unlink(dirPath + '/WRITTEN_FILE.txt', (err) => {
     if(err) console.log('ERROR -> ', err.message);
     else console.log('FILE DELETED !!');
 });
+
 
 
 
