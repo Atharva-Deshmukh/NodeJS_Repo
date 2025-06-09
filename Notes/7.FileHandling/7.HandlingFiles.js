@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { resolve } from 'path';
 
 const dirPath = 'Notes/7.FileHandling'; 
 const filePath = 'Notes/7.FileHandling/file.txt'; 
@@ -48,6 +49,31 @@ let newImagePath = './Images';
 let imageCopied = Buffer.from(fs.readFileSync(imagePath), "base64");
 
 fs.writeFileSync(newImagePath + '/CopiedImage.jpg', imageCopied);
+
+/********************************* Writing custom functions ************************************/
+
+let FilePath = 'Notes/7.FileHandling/file.txt';
+let encoding = 'utf-8'
+
+function myReadFile(filePath, encoding) {
+    return new Promise((resolve, reject) => {
+        fs.readFile(filePath, encoding, (err, data) => {
+            if (err) {
+                reject('ERROR -> ' + err);
+            } else {
+                resolve('DATA -> ' + data);
+            }
+        });
+    });
+}
+
+myReadFile(FilePath, encoding)
+    .then((resp) => {
+        console.log(resp);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 
 /*********************************** Update/Append file ***************************************/
 
